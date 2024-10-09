@@ -25,10 +25,14 @@ x0 = [x10 x20 x30 x40];
 odefun = @(t,x) [-x(2); -2*x(2) + 0.5*x(4); 0; -x(3) - 2*x(4)];
 [t,x]=ode45(odefun,[0 T],x0);
 figure(1)
-plot(t,x(:,1),'r',t,x(:,2),'g',t,0.5*x(:,4),'b')
+plot(t,x(:,1),'r',t,x(:,2),'g',t,0.5*x(:,4),'b');
+title('Analitical solution','Interpreter','latex')
+
 grid on
 
 % Численное решение
 Psi0B=[1 1];
-Psi0=fminsearch('costfunc4',Psi0B)
+Psi0=fminsearch('costfunc4',Psi0B);
+title('Numerical solution','Interpreter','latex')
 grid
+
