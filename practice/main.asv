@@ -1,0 +1,21 @@
+clear all
+clc
+global a11 a12 a21 a22 b11 b21 delta_max tm fi0
+v0 = 2.57; 
+L = 99.6; 
+r21 = -0.58; 
+r31 = 6.16; 
+q21 = 0.80;
+q31 = -7.23; 
+s21 = -0.34; 
+s31 = -3.5; 
+W = v0/L;
+a11 = -r31*W; 
+a12 = -q31*W^2;
+a21 = -r21; 
+a22 = -q21*W;
+b11 = -s31*W^2; 
+b21 = -s21*W;
+delta_max = 35*pi/180; 
+fi0=10*pi/180;
+w0_baz=fminsearch('fmsfun3',[0.1])
